@@ -13,11 +13,18 @@
 </head>
 <body>
   
-<h1>ここに本文が入ります。</h1>
-<amp-list width=400 height=300 src="./data.json" layout=responsive>
+<h1>amp-listテスト</h1>
+<amp-list width=400 height=300 src="https://www.googleapis.com/books/v1/volumes?q=%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92" layout=responsive>
   <template type="amp-mustache">
-    <p>{{title}}</p>
-    <br>
+    <div class="tana">
+      {{#volumeInfo}}
+      <div class="books">
+        <h3>{{title}}</h3>
+        <p>{{description}}</p>
+        <br>
+      </div>
+      {{/volumeInfo}}
+    </div>
   </template>
 </amp-list>
 </body>
