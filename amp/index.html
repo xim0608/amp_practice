@@ -8,10 +8,21 @@
 <meta name="amp-link-variable-allowed-origin" content="https://example.com https://example.org">
 </script>
 <style>body {opacity: 0}</style><noscript><style>body {opacity: 1}</style></noscript>
+<style amp-custom>
+  /* Center the notification content */
+  amp-user-notification > div {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
 <script async src="https://cdn.ampproject.org/v0.js"></script>
 <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
 <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
 <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+<script async custom-element="amp-user-notification" src="https://cdn.ampproject.org/v0/amp-user-notification-0.1.js"></script>
 </head>
 <body>
 
@@ -34,5 +45,12 @@
     </div>
   </template>
 </amp-list>
+<amp-user-notification id="my-notification"
+  layout="nodisplay">
+  <div>This is an amp-user-notification. It uses local storage to store the dismissed state.
+    <button on="tap:my-notification.dismiss"
+      class="ampstart-btn caps ml1">I accept</button>
+  </div>
+</amp-user-notification>
 </body>
 </html>
